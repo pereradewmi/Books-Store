@@ -33,7 +33,7 @@ class ProfileScreen extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           'Profile',
-          style: TextStyle(color: Colors.white, fontSize: 18),
+          style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
         ),
       ),
       body: SingleChildScrollView(
@@ -43,23 +43,23 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(height: 20),
             const CircleAvatar(
               radius: 50,
-              //backgroundImage: AssetImage('assets/profile_picture.jpg'),
+              backgroundImage: AssetImage('assets/user.jpg'),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 12),
             const Text(
               'Jane Goodall',
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: 6),
             const Text(
               'jane@janegoodall.org',
-              style: TextStyle(color: Colors.grey, fontSize: 14),
+              style: TextStyle(color: Colors.grey, fontSize: 16),
             ),
-            const SizedBox(height: 5),
+            const SizedBox(height: 4),
             const Text(
               'Joined in 2018',
               style: TextStyle(color: Colors.grey, fontSize: 14),
@@ -74,35 +74,53 @@ class ProfileScreen extends StatelessWidget {
                     backgroundColor: Colors.grey[800],
                     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(12),
                     ),
+                    elevation: 2,
                   ),
                   child: const Text(
                     'Edit Profile',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
-                const SizedBox(width: 10),
+                const SizedBox(width: 12),
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(12),
                     ),
+                    elevation: 2,
                   ),
                   child: const Text(
                     'Message',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 30),
+            const Divider(
+              color: Colors.grey,
+              height: 1,
+              thickness: 1,
+              indent: 20,
+              endIndent: 20,
+            ),
+            const SizedBox(height: 20),
             const MenuSection(title: 'My Orders', icon: Icons.shopping_cart),
             const MenuSection(title: 'Gift Cards', icon: Icons.card_giftcard),
             const MenuSection(title: 'Wishlist', icon: Icons.favorite_border),
+            const SizedBox(height: 20),
+            const Divider(
+              color: Colors.grey,
+              height: 1,
+              thickness: 1,
+              indent: 20,
+              endIndent: 20,
+            ),
             const SizedBox(height: 20),
             const Text(
               'Settings',
@@ -125,6 +143,7 @@ class ProfileScreen extends StatelessWidget {
                 style: TextStyle(color: Colors.grey, fontSize: 16),
               ),
             ),
+            const SizedBox(height: 30),
           ],
         ),
       ),
@@ -144,10 +163,11 @@ class MenuSection extends StatelessWidget {
       leading: Icon(
         icon,
         color: Colors.white,
+        size: 24,
       ),
       title: Text(
         title,
-        style: const TextStyle(color: Colors.white, fontSize: 16),
+        style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
       ),
       trailing: const Icon(
         Icons.arrow_forward_ios,
