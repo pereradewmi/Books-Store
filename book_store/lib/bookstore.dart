@@ -52,7 +52,7 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
               unselectedLabelColor: Colors.white60,
               labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               tabs: [
-                Tab(text: 'New'),
+                Tab(text: 'Latest'),
                 Tab(text: 'Novels'),
                 Tab(text: 'Fiction'),
                 Tab(text: 'Articles'),
@@ -63,7 +63,7 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
             // Content
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: ListView(
                   children: [
                     _sectionTitle('Featured Books'),
