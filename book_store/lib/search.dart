@@ -49,13 +49,20 @@ class _SearchPageState extends State<SearchPage> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF0F172A),
         elevation: 0,
-        leading: const Icon(Icons.arrow_back, color: Colors.white),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(
+                context); // This will pop the current screen and go back to the previous screen
+          },
+        ),
         title: const Text(
           'Search',
           style: TextStyle(color: Colors.white, fontSize: 18),
         ),
         centerTitle: true,
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

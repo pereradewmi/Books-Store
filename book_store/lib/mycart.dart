@@ -10,13 +10,15 @@ class ShoppingCartApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Shopping Cart',
-      theme: ThemeData.dark(),
-      home: ShoppingCartPage(),
+      theme: ThemeData.light(),
+      home: MyCartScreen(),
     );
   }
 }
 
-class ShoppingCartPage extends StatelessWidget {
+class MyCartScreen extends StatelessWidget {
+  MyCartScreen({super.key});
+
   final List<CartItem> cartItems = [
     CartItem(
       title: 'The Heroes of Summer',
@@ -37,9 +39,20 @@ class ShoppingCartPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF1E293B),
       appBar: AppBar(
-        title: Text('Shopping Cart'),
-        leading: Icon(Icons.arrow_back),
+        title: Text(
+          'Shopping Cart',
+          style: TextStyle(color: Colors.white), // Title in white color
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back,
+              color: Colors.white), // Back icon in white color
+          onPressed: () {
+            Navigator.pop(context); // Navigate back to the previous screen
+          },
+        ),
         backgroundColor: const Color(0xFF1E293B),
+        iconTheme:
+            IconThemeData(color: Colors.white), // All icons in AppBar in white
       ),
       body: Column(
         children: [
@@ -104,16 +117,22 @@ class CartItemWidget extends StatelessWidget {
               children: [
                 Text(
                   item.title,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
                 Text(
                   item.author,
-                  style: TextStyle(fontSize: 14, color: Colors.grey),
+                  style: TextStyle(fontSize: 14, color: Colors.grey[300]),
                 ),
                 SizedBox(height: 5),
                 Text(
                   '\$${item.price.toStringAsFixed(2)}',
-                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
                 ),
               ],
             ),

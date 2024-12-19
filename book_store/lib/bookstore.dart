@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'book_details.dart'; // Import the book detail page
+import 'profile.dart'; // Import your ProfileScreen
+import 'mycart.dart'; // Import the MyCartScreen
+import 'search.dart'; // Import the search page
 
 class BookstoreScreen extends StatefulWidget {
   const BookstoreScreen({super.key});
@@ -8,24 +12,42 @@ class BookstoreScreen extends StatefulWidget {
 }
 
 class _BookstoreScreenState extends State<BookstoreScreen> {
-  int _selectedIndex =
-      0; // To track the current index of the BottomNavigationBar
+  int _selectedIndex = 0;
 
-  // Method to handle bottom navigation item tap
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
+
+    // Navigate to MyCartScreen when the "Shop" tab (index 3) is tapped
+    if (index == 3) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MyCartScreen(),
+        ),
+      );
+    }
+
+    // Navigate to ProfileScreen when the "Account" tab (index 4) is tapped
+    if (index == 4) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const ProfileScreen(),
+        ),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F172A), // Background Color
+      backgroundColor: const Color(0xFF0F172A),
       appBar: AppBar(
         backgroundColor: const Color(0xFF0F172A),
         elevation: 0,
-        automaticallyImplyLeading: false, // Remove the back button
+        automaticallyImplyLeading: false,
         title: const Text(
           'Bookstore',
           style: TextStyle(
@@ -34,17 +56,32 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
             color: Colors.white,
           ),
         ),
-        actions: const [
-          Icon(Icons.search, size: 28, color: Colors.white),
-          SizedBox(width: 15),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search, size: 28, color: Colors.white),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) =>
+                      const SearchPage(), // Navigate to SearchPage
+                ),
+              );
+            },
+          ),
+          const SizedBox(width: 15),
         ],
+
+        // actions: const [
+        //   Icon(Icons.search, size: 28, color: Colors.white),
+        //   SizedBox(width: 15),
+        // ],
       ),
       body: DefaultTabController(
         length: 4,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Category Tabs
             const TabBar(
               isScrollable: false,
               indicatorColor: Colors.blueAccent,
@@ -59,8 +96,6 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
               ],
             ),
             const SizedBox(height: 10),
-
-            // Content
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -68,8 +103,8 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
                   children: [
                     _sectionTitle('Featured Books'),
                     const SizedBox(height: 20),
-                    _buildHorizontalBookList(),
-                    const SizedBox(height: 30),
+                    _buildHorizontalBookList(context),
+                    const SizedBox(height: 20),
                     _sectionTitle('Bestsellers in Business'),
                     const SizedBox(height: 10),
                     _buildBestsellersBookList(),
@@ -80,15 +115,14 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
           ],
         ),
       ),
-      // Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color(0xFF1E293B),
         type: BottomNavigationBarType.fixed,
         selectedItemColor: const Color.fromARGB(255, 22, 96, 224),
         unselectedItemColor: const Color.fromARGB(255, 255, 255, 255),
         showUnselectedLabels: true,
-        currentIndex: _selectedIndex, // Current index
-        onTap: _onItemTapped, // Handle taps
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped, // Handles the tab click events
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
@@ -102,7 +136,6 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
     );
   }
 
-  // Section title widget
   Widget _sectionTitle(String title) {
     return Text(
       title,
@@ -114,34 +147,48 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
     );
   }
 
-  // Horizontal ListView for Featured Books
-  Widget _buildHorizontalBookList() {
+  Widget _buildHorizontalBookList(BuildContext context) {
     return SizedBox(
       height: 230,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 5, // Adjust this number to the total number of books
+        itemCount: 5,
         itemBuilder: (context, index) {
-          return Container(
-            width: 150,
-            margin: const EdgeInsets.only(right: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                _bookCover('assets/${index + 1}.jpg', height: 180),
-                const SizedBox(height: 5),
-                Text(
-                  _getBookTitle(index),
-                  style: const TextStyle(
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BookDetailScreen(
+                    title: _getBookTitle(index),
+                    author: _getAuthorName(index),
+                    imagePath: 'assets/${index + 1}.jpg',
+                  ),
+                ),
+              );
+            },
+            child: Container(
+              width: 150,
+              margin: const EdgeInsets.only(right: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _bookCover('assets/${index + 1}.jpg', height: 180),
+                  const SizedBox(height: 5),
+                  Text(
+                    _getBookTitle(index),
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 14,
-                      fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  _getAuthorName(index),
-                  style: const TextStyle(color: Colors.white70, fontSize: 12),
-                ),
-              ],
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    _getAuthorName(index),
+                    style: const TextStyle(color: Colors.white70, fontSize: 12),
+                  ),
+                ],
+              ),
             ),
           );
         },
@@ -149,7 +196,6 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
     );
   }
 
-  // GridView for Bestsellers in Business
   Widget _buildBestsellersBookList() {
     return GridView.builder(
       shrinkWrap: true,
@@ -160,33 +206,46 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
         mainAxisSpacing: 5,
         childAspectRatio: 0.75,
       ),
-      itemCount: 4, // Adjust this number to the total number of books
+      itemCount: 4,
       itemBuilder: (context, index) {
-        // Correct path for bestsellers in business images
         String imagePath = 'assets/${index + 1}.jpg';
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _bookCover(imagePath, height: 150),
-            const SizedBox(height: 5),
-            Text(
-              _getBookTitle(index),
-              style: const TextStyle(
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => BookDetailScreen(
+                  title: _getBookTitle(index),
+                  author: _getAuthorName(index),
+                  imagePath: 'assets/${index + 1}.jpg',
+                ),
+              ),
+            );
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _bookCover(imagePath, height: 150),
+              const SizedBox(height: 5),
+              Text(
+                _getBookTitle(index),
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 14,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              _getAuthorName(index),
-              style: const TextStyle(color: Colors.white70, fontSize: 12),
-            ),
-          ],
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                _getAuthorName(index),
+                style: const TextStyle(color: Colors.white70, fontSize: 12),
+              ),
+            ],
+          ),
         );
       },
     );
   }
 
-  // Book Cover Widget
   Widget _bookCover(String imagePath, {double height = 150}) {
     return Container(
       height: height,
@@ -200,7 +259,6 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
     );
   }
 
-  // Method to get book titles
   String _getBookTitle(int index) {
     const bookTitles = [
       'Atomic Habits',
@@ -212,7 +270,6 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
     return bookTitles[index % bookTitles.length];
   }
 
-  // Method to get author names
   String _getAuthorName(int index) {
     const authors = [
       'James Clear',
