@@ -1,28 +1,16 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Book Details',
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFF0F172A),
-        useMaterial3: true,
-      ),
-      home: const BookDetailScreen(),
-    );
-  }
-}
-
 class BookDetailScreen extends StatelessWidget {
-  const BookDetailScreen({super.key});
+  final String title;
+  final String author;
+  final String imagePath;
+
+  const BookDetailScreen({
+    super.key,
+    required this.title,
+    required this.author,
+    required this.imagePath,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +20,9 @@ class BookDetailScreen extends StatelessWidget {
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context); // Navigate back to the previous screen
+          },
         ),
         title: const Text(
           'Book Details',
@@ -45,34 +35,32 @@ class BookDetailScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 20),
-            // Book Cover Image
             Center(
               child: Container(
                 height: 200,
                 width: 170,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
-                  image: const DecorationImage(
-                    image: AssetImage('assets/book1.jpg'),
+                  image: DecorationImage(
+                    image: AssetImage(imagePath),
                     fit: BoxFit.cover,
                   ),
                 ),
               ),
             ),
             const SizedBox(height: 20),
-            // Book Title & Author
-            const Text(
-              'The Coast',
-              style: TextStyle(
+            Text(
+              title,
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
             ),
             const SizedBox(height: 4),
-            const Text(
-              'Eric Ries',
-              style: TextStyle(
+            Text(
+              author,
+              style: const TextStyle(
                 color: Colors.grey,
                 fontSize: 16,
               ),

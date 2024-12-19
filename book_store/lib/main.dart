@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'bookstore.dart'; // Import bookstore.dart to use the BookstoreScreen
+import 'sign_in&sign_up.dart';
+import 'bookstore.dart'; // Import bookstore.dart to use the BookstoreScreen// Import the login and sign-up file
 
 void main() {
   runApp(const MyApp());
@@ -11,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Bookstore',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF607AFB)),
@@ -21,7 +23,12 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: const Color(0xFF0F172A),
       ),
-      home: const WelcomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const WelcomeScreen(),
+        '/login': (context) => LoginPage(),
+        '/register': (context) => RegisterPage(), // Register Page route
+      },
     );
   }
 }
@@ -59,11 +66,9 @@ class WelcomeScreen extends StatelessWidget {
               style: TextStyle(fontSize: 16, color: Colors.white70),
             ),
             const SizedBox(height: 40),
-
-            // Apple button with icon
+// Apple button with icon
             ElevatedButton.icon(
               onPressed: () {
-                // Navigate to the BookstoreScreen when the button is pressed
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -84,26 +89,7 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15),
-
-            // Google button with icon
-            ElevatedButton.icon(
-              onPressed: () {},
-              icon: const Icon(Icons.search, color: Colors.white),
-              label: const Text(
-                'Continue with Google',
-                style: TextStyle(color: Colors.white),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF4285F4),
-                minimumSize: const Size(double.infinity, 50),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8)),
-                padding: const EdgeInsets.symmetric(vertical: 12),
-              ),
-            ),
-            const SizedBox(height: 15),
-
-            // Facebook button with icon
+// Facebook button with icon
             ElevatedButton.icon(
               onPressed: () {},
               icon: const Icon(Icons.facebook, color: Colors.white),
@@ -120,10 +106,29 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-
+// Google button with icon
+            ElevatedButton.icon(
+              onPressed: () {},
+              icon: const Icon(Icons.search, color: Colors.white),
+              label: const Text(
+                'Continue with Google',
+                style: TextStyle(color: Colors.white),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF4285F4),
+                minimumSize: const Size(double.infinity, 50),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)),
+                padding: const EdgeInsets.symmetric(vertical: 12),
+              ),
+            ),
+            const SizedBox(height: 15),
             // Sign up button with icon
             TextButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                // Navigate to Login Page
+                Navigator.pushNamed(context, '/login');
+              },
               icon: const Icon(Icons.account_circle, color: Colors.white),
               label: const Text(
                 'Sign up for free',

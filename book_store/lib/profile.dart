@@ -33,7 +33,16 @@ class ProfileScreen extends StatelessWidget {
         centerTitle: true,
         title: const Text(
           'Profile',
-          style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+        ),
+        // Add back button to the AppBar
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(
+                context); // Navigate back when the back button is pressed
+          },
         ),
       ),
       body: SingleChildScrollView(
@@ -72,7 +81,8 @@ class ProfileScreen extends StatelessWidget {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.grey[800],
-                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40, vertical: 12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -80,7 +90,8 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   child: const Text(
                     'Edit Profile',
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -88,7 +99,8 @@ class ProfileScreen extends StatelessWidget {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
-                    padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 40, vertical: 12),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -96,7 +108,8 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   child: const Text(
                     'Message',
-                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
@@ -132,8 +145,10 @@ class ProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 10),
             const MenuSection(title: 'Account', icon: Icons.person),
-            const MenuSection(title: 'Notifications', icon: Icons.notifications),
-            const MenuSection(title: 'Shipping Address', icon: Icons.local_shipping),
+            const MenuSection(
+                title: 'Notifications', icon: Icons.notifications),
+            const MenuSection(
+                title: 'Shipping Address', icon: Icons.local_shipping),
             const MenuSection(title: 'Payment', icon: Icons.payment),
             const SizedBox(height: 20),
             TextButton(
@@ -167,7 +182,8 @@ class MenuSection extends StatelessWidget {
       ),
       title: Text(
         title,
-        style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
+        style: const TextStyle(
+            color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500),
       ),
       trailing: const Icon(
         Icons.arrow_forward_ios,
