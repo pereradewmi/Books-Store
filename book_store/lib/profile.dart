@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -36,12 +32,10 @@ class ProfileScreen extends StatelessWidget {
           style: TextStyle(
               color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
         ),
-        // Add back button to the AppBar
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pop(
-                context); // Navigate back when the back button is pressed
+            Navigator.pop(context);
           },
         ),
       ),
@@ -80,7 +74,7 @@ class ProfileScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.grey[800],
+                    backgroundColor: const Color(0xFF057F83),
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40, vertical: 12),
                     shape: RoundedRectangleBorder(
@@ -98,7 +92,7 @@ class ProfileScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blue,
+                    backgroundColor: const Color(0xFF02ABB0),
                     padding: const EdgeInsets.symmetric(
                         horizontal: 40, vertical: 12),
                     shape: RoundedRectangleBorder(
@@ -151,11 +145,28 @@ class ProfileScreen extends StatelessWidget {
                 title: 'Shipping Address', icon: Icons.local_shipping),
             const MenuSection(title: 'Payment', icon: Icons.payment),
             const SizedBox(height: 20),
-            TextButton(
-              onPressed: () {},
+            // TextButton(
+            //   onPressed: () {},
+            //   child: const Text(
+            //     'Sign Out',
+            //     style: TextStyle(color: Colors.grey, fontSize: 16),
+            //   ),
+            // ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              style: TextButton.styleFrom(
+                backgroundColor: const Color(0xFF02ABB0),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
               child: const Text(
                 'Sign Out',
-                style: TextStyle(color: Colors.grey, fontSize: 16),
+                style: TextStyle(color: Colors.white),
               ),
             ),
             const SizedBox(height: 30),

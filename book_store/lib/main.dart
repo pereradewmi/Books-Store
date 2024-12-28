@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'sign_in&sign_up.dart';
-import 'bookstore.dart'; 
+import 'sign_in_sign_up.dart';
+import 'bookstore.dart';
 import 'get_started.dart';
 
 void main() {
@@ -26,10 +26,10 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-         '/': (context) =>  SplashScreen(),
+        '/': (context) => SplashScreen(),
         '/welcome': (context) => const WelcomeScreen(),
         //'/login': (context) => LoginPage(),
-        '/register': (context) => RegisterPage(), 
+        '/register': (context) => RegisterPage(),
       },
     );
   }
@@ -49,15 +49,15 @@ class WelcomeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-                'assets/logo.png', 
-                width: 180,
-                height: 160,
-                fit: BoxFit.contain,
-              ),
+              'assets/logo.png',
+              width: 180,
+              height: 160,
+              fit: BoxFit.contain,
+            ),
             const SizedBox(height: 5),
             //const Text(
-              //'Welcome to Bookstore',
-              //style: TextStyle(fontSize: 22, color: Colors.white),
+            //'Welcome to Bookstore',
+            //style: TextStyle(fontSize: 22, color: Colors.white),
             //),
             const SizedBox(height: 40),
             const Text(
@@ -83,13 +83,13 @@ class WelcomeScreen extends StatelessWidget {
                       builder: (context) => const BookstoreScreen()),
                 );
               },
-              icon: const Icon(Icons.apple, color: Colors.white), 
+              icon: const Icon(Icons.apple, color: Colors.white),
               label: const Text(
                 'Continue With Apple',
                 style: TextStyle(color: Colors.white),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF1E293B),
+                backgroundColor: const Color.fromARGB(255, 9, 187, 194),
                 minimumSize: const Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8)),
@@ -106,7 +106,7 @@ class WelcomeScreen extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF1877F2),
+                backgroundColor: const Color(0xFF02ABB0),
                 minimumSize: const Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8)),
@@ -123,7 +123,7 @@ class WelcomeScreen extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF4285F4),
+                backgroundColor: const Color.fromARGB(255, 1, 134, 139),
                 minimumSize: const Size(double.infinity, 50),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8)),

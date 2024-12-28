@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'sign_in&sign_up.dart';
+import 'sign_in_sign_up.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -14,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 5), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => LoginPage()),
+        MaterialPageRoute(builder: (context) => const LoginPage()),
       );
     });
   }
@@ -27,19 +29,19 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-              Image.asset(
-                'assets/logo.png', 
-                width: 300,
-                height: 300,
-                fit: BoxFit.contain,
-              ),
+            Image.asset(
+              'assets/logo.png',
+              width: 300,
+              height: 300,
+              fit: BoxFit.contain,
+            ),
             const SizedBox(height: 20),
             const Text(
               'READ & GROW',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xFF5CE1E6),
+                color: Color(0xFF5CE1E6),
               ),
             ),
           ],
@@ -48,4 +50,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-
