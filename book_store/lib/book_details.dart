@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class BookDetailScreen extends StatelessWidget {
   final String title;
   final String author;
@@ -16,6 +17,7 @@ class BookDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+    
         backgroundColor: const Color(0xFF0F172A),
         elevation: 0,
         leading: IconButton(
