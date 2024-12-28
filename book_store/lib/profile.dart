@@ -8,10 +8,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Profile UI',
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0xFF0F172A),
-        useMaterial3: true,
-      ),
+      theme: ThemeData.light(),
       home: const ProfileScreen(),
     );
   }
