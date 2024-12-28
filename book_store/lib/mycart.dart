@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(ShoppingCartApp());
-}
-
 class ShoppingCartApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -24,13 +20,13 @@ class MyCartScreen extends StatelessWidget {
       title: 'The Heroes of Summer',
       author: 'Eric Ries',
       price: 15.99,
-      image: AssetImage('assets/book1.jpg'),
+      image: const AssetImage('assets/book1.jpg'),
     ),
     CartItem(
       title: 'The Beauty Within',
       author: 'Eric Ries',
       price: 15.99,
-      image: AssetImage('assets/book2.jpg'),
+      image: const AssetImage('assets/book2.jpg'),
     ),
   ];
 
@@ -39,20 +35,18 @@ class MyCartScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF1E293B),
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Shopping Cart',
-          style: TextStyle(color: Colors.white), // Title in white color
+          style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back,
-              color: Colors.white), // Back icon in white color
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pop(context); // Navigate back to the previous screen
+            Navigator.pop(context);
           },
         ),
         backgroundColor: const Color(0xFF1E293B),
-        iconTheme:
-            IconThemeData(color: Colors.white), // All icons in AppBar in white
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Column(
         children: [
@@ -65,7 +59,7 @@ class MyCartScreen extends StatelessWidget {
               },
             ),
           ),
-          BottomButtons(),
+          const BottomButtons(),
         ],
       ),
     );
@@ -89,35 +83,33 @@ class CartItem {
 class CartItemWidget extends StatelessWidget {
   final CartItem item;
 
-  const CartItemWidget({required this.item});
+  const CartItemWidget({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-      padding: EdgeInsets.all(10),
+      margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Color(0xFF1E293B),
+        color: const Color(0xFF1E293B),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
         children: [
-          // Local Image
           Image(
             image: item.image,
             height: 75,
             width: 55,
             fit: BoxFit.cover,
           ),
-          SizedBox(width: 10),
-          // Item Details
+          const SizedBox(width: 10),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   item.title,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
@@ -126,10 +118,10 @@ class CartItemWidget extends StatelessWidget {
                   item.author,
                   style: TextStyle(fontSize: 14, color: Colors.grey[300]),
                 ),
-                SizedBox(height: 5),
+                const SizedBox(height: 5),
                 Text(
                   '\$${item.price.toStringAsFixed(2)}',
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.bold,
                       color: Colors.white),
@@ -137,24 +129,22 @@ class CartItemWidget extends StatelessWidget {
               ],
             ),
           ),
-          // Wishlist Button and Delete Icon
           Column(
             children: [
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
               GestureDetector(
-                onTap: () {
-                  // Handle delete action
-                },
-                child: Icon(Icons.delete, color: Colors.white),
+                onTap: () {},
+                child: const Icon(Icons.delete, color: Colors.white),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.grey[800],
-                  padding: EdgeInsets.symmetric(horizontal: 13, vertical: 4),
+                  backgroundColor: const Color(0xFF02ABB0),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 13, vertical: 4),
                 ),
-                child: Text(
+                child: const Text(
                   'Add to Wishlist',
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
@@ -168,39 +158,39 @@ class CartItemWidget extends StatelessWidget {
 }
 
 class BottomButtons extends StatelessWidget {
+  const BottomButtons({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       color: const Color(0xFF1E293B),
       child: Row(
         children: [
           Expanded(
             child: ElevatedButton(
               onPressed: () {
-                // Handle Checkout
+                //  Checkout
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                padding: EdgeInsets.symmetric(vertical: 12),
+                backgroundColor: const Color(0xFF057F83),
+                padding: const EdgeInsets.symmetric(vertical: 12),
               ),
-              child: Text(
+              child: const Text(
                 'Checkout',
                 style: TextStyle(fontSize: 16, color: Colors.white),
               ),
             ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Expanded(
             child: ElevatedButton(
-              onPressed: () {
-                // Handle Continue Shopping
-              },
+              onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.grey[800],
-                padding: EdgeInsets.symmetric(vertical: 12),
+                backgroundColor: const Color(0xFF02ABB0),
+                padding: const EdgeInsets.symmetric(vertical: 12),
               ),
-              child: Text(
+              child: const Text(
                 'Continue Shopping',
                 style: TextStyle(fontSize: 16, color: Colors.white),
               ),

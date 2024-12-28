@@ -21,7 +21,7 @@ class BookDetailScreen extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pop(context); // Navigate back to the previous screen
+            Navigator.pop(context);
           },
         ),
         title: const Text(
@@ -66,17 +66,15 @@ class BookDetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            // Ratings and Reviews
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InfoBox(title: '4.5', subtitle: 'ratings'),
-                const SizedBox(width: 20),
+                SizedBox(width: 20),
                 InfoBox(title: '140', subtitle: 'reviews'),
               ],
             ),
             const SizedBox(height: 30),
-            // What's it about?
             const SectionTitle(title: "What's it about?"),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
@@ -91,8 +89,7 @@ class BookDetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            // About the Author
-            const SectionTitle(title: "About the author"),
+            const SectionTitle(title: "About the Author"),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
@@ -106,7 +103,6 @@ class BookDetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 30),
-            // Reviews
             const SectionTitle(title: "Reviews"),
             const SizedBox(height: 10),
             const Text(
@@ -128,14 +124,12 @@ class BookDetailScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            // Review Bars
             const ReviewBar(label: "5", value: 70),
             const ReviewBar(label: "4", value: 20),
             const ReviewBar(label: "3", value: 5),
             const ReviewBar(label: "2", value: 3),
             const ReviewBar(label: "1", value: 2),
             const SizedBox(height: 30),
-            // Buttons
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Row(
@@ -145,7 +139,7 @@ class BookDetailScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
+                        backgroundColor: const Color(0xFF02ABB0),
                         padding: const EdgeInsets.symmetric(vertical: 14),
                       ),
                       child: const Text(

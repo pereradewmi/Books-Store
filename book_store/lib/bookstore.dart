@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'book_details.dart'; // Import the book detail page
-import 'profile.dart'; // Import your ProfileScreen
-import 'mycart.dart'; // Import the MyCartScreen
-import 'search.dart'; // Import the search page
+import 'book_details.dart';
+import 'profile.dart';
+import 'mycart.dart';
+import 'search.dart';
 
 class BookstoreScreen extends StatefulWidget {
   const BookstoreScreen({super.key});
@@ -19,7 +19,6 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
       _selectedIndex = index;
     });
 
-    // Navigate to MyCartScreen when the "Shop" tab (index 3) is tapped
     if (index == 3) {
       Navigator.push(
         context,
@@ -29,7 +28,6 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
       );
     }
 
-    // Navigate to ProfileScreen when the "Account" tab (index 4) is tapped
     if (index == 4) {
       Navigator.push(
         context,
@@ -63,19 +61,13 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>
-                      const SearchPage(), // Navigate to SearchPage
+                  builder: (context) => const SearchPage(),
                 ),
               );
             },
           ),
           const SizedBox(width: 15),
         ],
-
-        // actions: const [
-        //   Icon(Icons.search, size: 28, color: Colors.white),
-        //   SizedBox(width: 15),
-        // ],
       ),
       body: DefaultTabController(
         length: 4,
@@ -84,8 +76,8 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
           children: [
             const TabBar(
               isScrollable: false,
-              indicatorColor: Colors.blueAccent,
-              labelColor: Colors.blueAccent,
+              indicatorColor: Color(0xFF5CE1E6),
+              labelColor: Color(0xFF5CE1E6),
               unselectedLabelColor: Colors.white60,
               labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               tabs: [
@@ -118,11 +110,11 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color(0xFF1E293B),
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: const Color.fromARGB(255, 22, 96, 224),
+        selectedItemColor: const Color(0xFF5CE1E6),
         unselectedItemColor: const Color.fromARGB(255, 255, 255, 255),
         showUnselectedLabels: true,
         currentIndex: _selectedIndex,
-        onTap: _onItemTapped, // Handles the tab click events
+        onTap: _onItemTapped,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
@@ -276,7 +268,7 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
       'Melissa Ferguson',
       'Jeff Kinney',
       'Colleen Hoover',
-      'Colleen Hoover',
+      'Mary Jackson',
     ];
     return authors[index % authors.length];
   }

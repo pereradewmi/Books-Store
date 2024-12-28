@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: SearchPage(),
     );
@@ -24,7 +20,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  int _currentIndex = 0; // To track the selected bottom nav item
+  int _currentIndex = 0;
 
   final List<String> refineBy = [
     'Relevance',
@@ -45,15 +41,14 @@ class _SearchPageState extends State<SearchPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F172A), // Dark background color
+      backgroundColor: const Color(0xFF0F172A),
       appBar: AppBar(
         backgroundColor: const Color(0xFF0F172A),
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pop(
-                context); // This will pop the current screen and go back to the previous screen
+            Navigator.pop(context);
           },
         ),
         title: const Text(
@@ -62,16 +57,14 @@ class _SearchPageState extends State<SearchPage> {
         ),
         centerTitle: true,
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Search Bar
             Container(
               decoration: BoxDecoration(
-                color: const Color(0xFF1E293B), // Dark gray background
+                color: const Color(0xFF1E293B),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: const TextField(
@@ -86,8 +79,6 @@ class _SearchPageState extends State<SearchPage> {
               ),
             ),
             const SizedBox(height: 20),
-
-            // Refine By Section
             const Text(
               'Refine by',
               style: TextStyle(
@@ -102,10 +93,7 @@ class _SearchPageState extends State<SearchPage> {
               children:
                   refineBy.map((item) => ChipWidget(label: item)).toList(),
             ),
-
             const SizedBox(height: 20),
-
-            // Categories Section
             const Text(
               'Categories',
               style: TextStyle(
@@ -127,7 +115,7 @@ class _SearchPageState extends State<SearchPage> {
         currentIndex: _currentIndex,
         onTap: (index) {
           setState(() {
-            _currentIndex = index; // Update selected tab
+            _currentIndex = index;
           });
         },
         backgroundColor: const Color(0xFF1E293B),
