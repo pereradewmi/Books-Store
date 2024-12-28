@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'sign_in&sign_up.dart';
-import 'bookstore.dart'; // Import bookstore.dart to use the BookstoreScreen// Import the login and sign-up file
+import 'bookstore.dart'; 
+import 'get_started.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,9 +26,10 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => const WelcomeScreen(),
-        '/login': (context) => LoginPage(),
-        '/register': (context) => RegisterPage(), // Register Page route
+         '/': (context) =>  SplashScreen(),
+        '/welcome': (context) => const WelcomeScreen(),
+        //'/login': (context) => LoginPage(),
+        '/register': (context) => RegisterPage(), 
       },
     );
   }
@@ -46,14 +48,20 @@ class WelcomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Image.asset(
+                'assets/logo.png', 
+                width: 180,
+                height: 160,
+                fit: BoxFit.contain,
+              ),
+            const SizedBox(height: 5),
+            //const Text(
+              //'Welcome to Bookstore',
+              //style: TextStyle(fontSize: 22, color: Colors.white),
+            //),
             const SizedBox(height: 40),
             const Text(
-              'Welcome to Bookstore',
-              style: TextStyle(fontSize: 22, color: Colors.white),
-            ),
-            const SizedBox(height: 40),
-            const Text(
-              'Get lost in a good book',
+              'Get lost in a Good Book',
               style: TextStyle(
                   fontSize: 34,
                   fontWeight: FontWeight.bold,
@@ -61,12 +69,12 @@ class WelcomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const Text(
-              'Enjoy your favorite books, or discover something new.',
+              'Enjoy Your Favorite Books, Or Discover Something New.',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16, color: Colors.white70),
             ),
             const SizedBox(height: 40),
-// Apple button with icon
+
             ElevatedButton.icon(
               onPressed: () {
                 Navigator.push(
@@ -75,9 +83,9 @@ class WelcomeScreen extends StatelessWidget {
                       builder: (context) => const BookstoreScreen()),
                 );
               },
-              icon: const Icon(Icons.apple, color: Colors.white), // Apple icon
+              icon: const Icon(Icons.apple, color: Colors.white), 
               label: const Text(
-                'Continue with Apple',
+                'Continue With Apple',
                 style: TextStyle(color: Colors.white),
               ),
               style: ElevatedButton.styleFrom(
@@ -89,12 +97,12 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 15),
-// Facebook button with icon
+
             ElevatedButton.icon(
               onPressed: () {},
               icon: const Icon(Icons.facebook, color: Colors.white),
               label: const Text(
-                'Continue with Facebook',
+                'Continue With Facebook',
                 style: TextStyle(color: Colors.white),
               ),
               style: ElevatedButton.styleFrom(
@@ -106,12 +114,12 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-// Google button with icon
+
             ElevatedButton.icon(
               onPressed: () {},
               icon: const Icon(Icons.search, color: Colors.white),
               label: const Text(
-                'Continue with Google',
+                'Continue With Google',
                 style: TextStyle(color: Colors.white),
               ),
               style: ElevatedButton.styleFrom(
@@ -122,22 +130,20 @@ class WelcomeScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 12),
               ),
             ),
-            const SizedBox(height: 15),
-            // Sign up button with icon
-            TextButton.icon(
-              onPressed: () {
-                // Navigate to Login Page
-                Navigator.pushNamed(context, '/login');
-              },
-              icon: const Icon(Icons.account_circle, color: Colors.white),
-              label: const Text(
-                'Sign up for free',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-            const SizedBox(height: 40),
+            // const SizedBox(height: 15),
+            // TextButton.icon(
+            //   onPressed: () {
+            //     Navigator.pushNamed(context, '/login');
+            //   },
+            //   icon: const Icon(Icons.account_circle, color: Colors.white),
+            //   label: const Text(
+            //     'Sign up for free',
+            //     style: TextStyle(color: Colors.white),
+            //   ),
+            // ),
+            const SizedBox(height: 100),
             const Text(
-              'By continuing, you agree to the Terms of Use. Read our Privacy Policy.',
+              'By continuing, you agree to the Terms and Conditions. Read our Privacy Policy.',
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.white70, fontSize: 12),
             ),

@@ -1,4 +1,4 @@
-import 'package:app/bookstore.dart';
+import 'bookstore.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -15,8 +15,17 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              ClipOval(
+                child: Image.asset(
+                'assets/logo.png', 
+                width: 200,
+                height: 200,
+                fit: BoxFit.contain,
+                ),
+              ),
+              const SizedBox(height: 1),
               const Text(
-                'Log in',
+                'Login',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -35,7 +44,7 @@ class LoginPage extends StatelessWidget {
               TextField(
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                  hintText: 'Username or email',
+                  hintText: 'Username',
                   hintStyle: const TextStyle(color: Colors.white54),
                   filled: true,
                   fillColor: Colors.grey[500],
@@ -82,29 +91,44 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 child: const Text(
-                  'Log in',
+                  'Login',
                   style:
-                      TextStyle(color: Colors.white), // Set text color to white
+                      TextStyle(color: Colors.white), 
                 ),
               ),
-              //my code
-              const SizedBox(height: 15),
+             
+              const SizedBox(height: 1),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(
-                      context, '/register'); // Navigate to Register Page
+                      context, '/register'); 
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 15, 23, 42),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+              
                 ),
                 child: const Text(
                   "Don't have an account? Sign up",
                   style:
-                      TextStyle(color: Colors.white), // Set text color to white
+                      TextStyle(color: Colors.white), 
                 ),
+                
+              ),
+
+              const SizedBox(height: 1),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(
+                      context, '/welcome'); 
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 15, 23, 42),
+                ),
+                child: const Text(
+                  "Sign in with your Email!",
+                  style:
+                      TextStyle(color: Colors.white), 
+                ),   
               ),
             ],
           ),
@@ -128,6 +152,14 @@ class RegisterPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              Image.asset(
+                'assets/logo.png', 
+                width: 180,
+                height: 160,
+                fit: BoxFit.contain,
+              ),
+
+              const SizedBox(height: 1),
               const Text(
                 'Register',
                 style: TextStyle(
@@ -137,11 +169,11 @@ class RegisterPage extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 10),
               TextField(
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                  hintText: 'First name', // Placeholder updated
+                  hintText: 'First Name',
                   hintStyle: const TextStyle(color: Colors.white54),
                   filled: true,
                   fillColor: Colors.grey[500],
@@ -151,11 +183,11 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 10),
               TextField(
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                  hintText: 'Last name', // Placeholder updated
+                  hintText: 'Last Name', 
                   hintStyle: const TextStyle(color: Colors.white54),
                   filled: true,
                   fillColor: Colors.grey[500],
@@ -165,11 +197,11 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 10),
               TextField(
                 style: const TextStyle(color: Colors.white),
                 decoration: InputDecoration(
-                  hintText: 'Email address', // Placeholder updated
+                  hintText: 'Email Address', 
                   hintStyle: const TextStyle(color: Colors.white54),
                   filled: true,
                   fillColor: Colors.grey[500],
@@ -179,12 +211,12 @@ class RegisterPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 10),
               TextField(
                 style: const TextStyle(color: Colors.white),
                 obscureText: true,
                 decoration: InputDecoration(
-                  hintText: 'Password', // Placeholder updated
+                  hintText: 'Password', 
                   hintStyle: const TextStyle(color: Colors.white54),
                   filled: true,
                   fillColor: Colors.grey[500],
@@ -196,46 +228,46 @@ class RegisterPage extends StatelessWidget {
                       const Icon(Icons.visibility, color: Colors.white54),
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context); // Navigate back to Login Page
+                  Navigator.pop(context); 
                 },
                 style: TextButton.styleFrom(
-                  backgroundColor: Colors.blue, // Set background color to blue
+                  backgroundColor: Colors.blue, 
                   padding:
                       const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10), // Rounded corners
+                    borderRadius: BorderRadius.circular(10), 
                   ),
                 ),
-                // child: const Text('Back to Login'),
+         
                 child: const Text(
                   'Sign Up',
                   style:
-                      TextStyle(color: Colors.white), // Set text color to white
+                      TextStyle(color: Colors.white), 
                 ),
               ),
-              //my code
-              const SizedBox(height: 15),
+            
+              const SizedBox(height: 5),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pop(context); // Navigate back to Login Page
+                  Navigator.pop(context); 
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: const Color.fromARGB(
-                      255, 15, 23, 42), // Set background color to blue
+                      255, 15, 23, 42), 
                   padding:
                       const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10), // Rounded corners
+                    borderRadius: BorderRadius.circular(10), 
                   ),
                 ),
                 // child: const Text('Back to Login'),
                 child: const Text(
                   'Back to Login',
                   style:
-                      TextStyle(color: Colors.white), // Set text color to white
+                      TextStyle(color: Colors.white), 
                 ),
               ),
             ],
