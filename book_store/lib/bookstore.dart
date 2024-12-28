@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'book_details.dart';
+import 'library.dart';
 import 'profile.dart';
 import 'mycart.dart';
 import 'search.dart';
@@ -18,6 +19,16 @@ class _BookstoreScreenState extends State<BookstoreScreen> {
     setState(() {
       _selectedIndex = index;
     });
+
+
+    if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const LibraryScreen(),
+        ),
+      );
+    }
 
     if (index == 3) {
       Navigator.push(

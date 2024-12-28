@@ -55,6 +55,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/book_pages/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

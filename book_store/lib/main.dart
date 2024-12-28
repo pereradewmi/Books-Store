@@ -26,10 +26,10 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => SplashScreen(),
+        '/': (context) => const SplashScreen(),
         '/welcome': (context) => const WelcomeScreen(),
         //'/login': (context) => LoginPage(),
-        '/register': (context) => RegisterPage(),
+        '/register': (context) => const RegisterPage(),
       },
     );
   }

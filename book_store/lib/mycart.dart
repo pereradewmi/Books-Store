@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ShoppingCartApp extends StatelessWidget {
+  const ShoppingCartApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
