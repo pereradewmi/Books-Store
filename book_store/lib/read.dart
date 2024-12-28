@@ -94,7 +94,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
                       ),
                       onPressed: currentPage < bookPages.length - 1
                           ? nextPage
-                          : null, // Disables button when it's the last page
+                          : null, 
                     ),
                   ),
                 ],
@@ -115,7 +115,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
               children: [
                 ElevatedButton.icon(
                   onPressed: () {
-                    // Implement download functionality
+                    //  download 
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF02ABB0),
@@ -135,7 +135,7 @@ class _BookReaderScreenState extends State<BookReaderScreen> {
                 ),
                 ElevatedButton.icon(
                   onPressed: () {
-                    // Implement share functionality
+                    //  share 
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF02ABB0),
