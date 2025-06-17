@@ -29,3 +29,17 @@ To get started with this project, you need to have Flutter installed on your mac
 1. Clone the repository:
    ```bash
    git clone <repository-url>
+
+## Preview
+![image](https://github.com/user-attachments/assets/175e1b90-36d7-4ac2-b2cf-e991bcb75a9e)
+![image](https://github.com/user-attachments/assets/62030c49-15b8-4d14-8dac-1f2c9ba8be65)
+![image](https://github.com/user-attachments/assets/0398df6e-7b60-4b06-9b82-edd0c286f8e2)
+![image](https://github.com/user-attachments/assets/81fb9f2d-273a-40f8-bf14-6a651ca50054)
+![image](https://github.com/user-attachments/assets/99dec5e6-ad76-407c-9161-a1d423dc7aa5)
+![image](https://github.com/user-attachments/assets/5fd5b33a-1480-4e1a-89a9-39becfd8f4d9)
+
+
+
+
+
+
